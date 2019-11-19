@@ -1,0 +1,127 @@
+{
+    "name": "crestroncomponents",
+    "displayName": "Crestron Components",
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "description": "Syntax, code completion, validation, and help for Crestron Components",
+    "repository": {
+        "repository": {
+            "type": "git",
+            "url": ""
+        }
+    },
+    "version": "0.0.7",
+    "publisher": "Crestron",
+    "engines": {
+        "vscode": "^1.24.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#C80000",
+        "theme": "dark"
+    },
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "_ch5.updateMetaData",
+                "title": "Update Metadata",
+                "category": "Crestron"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "CH5 configuration",
+            "properties": {
+                "ch5.stringDistanceRatingAllowance": {
+                    "scope": "resource",
+                    "type": "number",
+                    "default": 0.3,
+                    "description": "Controls the string distance rating allowed for diagnostic attributes. Should be in range from 0 to 1, the higher the value, the stricter the detection."
+                },
+                "ch5.customAttributesInclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [
+                        "*ch5*"
+                    ],
+                    "description": "List of patterns for custom ch5 attributes that are included when diagnostics are provided."
+                },
+                "ch5.sourceURL": {
+                    "type": "string",
+                    "default": "https://alpha.ch5.crestron-swp.com:4439/assets/lspconfig/current/schema.json",
+                    "description": "Source URL of meta-data where are stored snippets, completions and hover documentation"
+                },
+                "ch5.showErrors": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Allows to display errors."
+                },
+                "ch5.maxNumberOfProblems": {
+                    "scope": "resource",
+                    "type": "number",
+                    "default": 100,
+                    "description": "Controls the maximum number of problems produced by the server."
+                },
+                "ch5.scannerExclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [
+                        "**/.git",
+                        "**/node_modules"
+                    ],
+                    "description": "List of Glob-patterns for directories that are excluded when scanning."
+                },
+                "ch5.scannerDepth": {
+                    "type": "number",
+                    "default": 30,
+                    "description": "The maximum number of nested directories to scan."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "vscode:prepublish": "npm run compile",
+        "clean": "rimraf out",
+        "compile": "npm run clean && tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test",
+        "generate-metadata": "./node_modules/.bin/json2ts ./schema/metadata.schema.json ./src/types/metadata.ts",
+        "generate-package": "node ./build/packages.js"
+    },
+    "devDependencies": {
+        "@types/micromatch": "^3.1.0",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.66",
+        "@types/parse-glob": "^3.0.29",
+        "@types/readdir-enhanced": "^2.2.0",
+        "@types/request": "^2.47.1",
+        "through2": "^2.0.3",
+        "tslint": "^5.8.0",
+        "typescript": "^2.9.2",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "string-similarity": "^1.2.0",
+        "ajv": "^6.5.2",
+        "fs-path": "0.0.24",
+        "json-schema-to-typescript": "^5.5.0",
+        "micromatch": "^3.1.10",
+        "readdir-enhanced": "^2.2.1",
+        "request": "^2.87.0",
+        "vscode-html-languageservice": "^2.1.2",
+        "vscode-languageclient": "^4.2.1",
+        "vscode-languageserver": "^4.2.1",
+        "vscode-languageserver-types": "^3.8.2"
+    }
+}
