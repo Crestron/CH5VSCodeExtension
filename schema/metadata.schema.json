@@ -1,0 +1,133 @@
+{
+    "title": "Metadata",
+    "type": "object",
+    "properties": {
+        "htmlElements": {
+            "$ref": "#/definitions/ElementsData"
+        },
+        "ch5Elements": {
+            "$ref": "#/definitions/ElementsData"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["htmlElements", "ch5Elements"],
+    "definitions": {
+        "ElementsData": {
+           "type": "object",
+           "properties": {
+               "common": { 
+                   "$ref": "#/definitions/CommonData"
+                }, 
+                "elements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Ch5Element"
+                    }
+                }
+           },
+           "required": ["common"],
+           "additionalProperties": false
+        },
+        "CommonData": {
+            "type": "object",
+            "properties": {
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Ch5Attribute"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "required": ["attributes"]
+        },
+        "Ch5Attribute": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "type":"string"
+                    }
+                },
+                "documentation": {
+                    "type":"array",
+                    "items": {
+                        "type":"string"
+                    }
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "Ch5Element": {
+            "type": "object",
+            "properties": {
+                "document":{
+                    "type":"string"
+                },
+                "ctime": {
+                    "type":"string",
+                    "format":"date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tagName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type":"string"
+                },
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Ch5Attribute"
+                    }
+                },
+                "documentation": {
+                    "type":"array",
+                    "items": {
+                        "type":"string"
+                    }
+                },
+                "snippets": {
+                    "type":"array",
+                    "items": {
+                        "$ref": "#/definitions/Ch5Snippet"
+                    }
+                }
+            },
+            "required": ["name", "tagName"],
+            "additionalProperties": false
+        },
+        "Ch5Snippet":{
+            "type":"object",
+            "properties": {
+                "prefix": {
+                    "type":"string"
+                },
+                "description": {
+                    "type":"string"
+                },
+                "body":{
+                    "type":"array",
+                    "items": {
+                        "type":"string"
+                    }
+                }
+            },
+            "required": ["prefix", "description", "body"],
+            "additionalProperties": false
+        }        
+    }
+}
