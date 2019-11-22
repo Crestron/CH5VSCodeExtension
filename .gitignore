@@ -5,6 +5,7 @@ temp
 .vscode-test/
 *.vsix
 .idea
+output
 
 # Logs
 logs
