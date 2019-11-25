@@ -9,12 +9,12 @@
 | DEV NIGHTLY - latest-dev | Status |
 | ------ | ----------- |
 | Build Pipeline | ![Build status](https://dev.azure.com/crestron-mobile-devops/MobileApps/_apis/build/status/Blackbird/CoreBuild/CH5VSCodeExtension?branchName=dev) |
-| Release Pipeline - Azure Blob | Work In Progress |
+| Release Pipeline - Azure Blob | ![Build status](https://vsrm.dev.azure.com/crestron-mobile-devops/_apis/public/Release/badge/0403b700-ab40-43cd-9990-961924c561bc/34/86) |
 
 | MASTER-QE - latest-qe | Status |
 | ------ | ----------- |
 | Build Pipeline | ![Build status](https://dev.azure.com/crestron-mobile-devops/MobileApps/_apis/build/status/Blackbird/CoreBuild/CH5VSCodeExtension?branchName=master) |
-| Release Pipeline - Azure Blob | Work In Progress |
+| Release Pipeline - Azure Blob | ![Build status](https://vsrm.dev.azure.com/crestron-mobile-devops/_apis/public/Release/badge/0403b700-ab40-43cd-9990-961924c561bc/34/91) |
 | VsCode Marketplace | Work In Progress |
 
 > Crestron Components IntelliSense (Snippets, Completion, Suggestions, Hover Help, Diagnostics, Action choices) for all html files in the workspace.
