@@ -29,5 +29,4 @@ fix invalid attributes
 
 # Enjoy
 
-![](images/demo.gif)
 
