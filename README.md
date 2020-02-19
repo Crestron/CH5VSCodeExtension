@@ -7,7 +7,7 @@
 
 ## This Extension provides support for Crestron CH5 Components
 
-### Snippits
+### Snippets
 
 Little bits of code injected.
 
