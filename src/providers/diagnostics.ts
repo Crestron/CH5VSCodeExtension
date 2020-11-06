@@ -79,6 +79,10 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                         validAttribute = false;
                     }
 
+                    if (scanner.getTokenText().toLocaleLowerCase().indexOf('aria-') === 0) {
+                        validAttribute = true;
+                    }
+                    
                     if(!validAttribute) { 
                         probNr++;
                         let diagnostic: Diagnostic = {
