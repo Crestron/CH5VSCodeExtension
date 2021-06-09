@@ -12,7 +12,7 @@
     "version": "0.0.8",
     "publisher": "Crestron",
     "engines": {
-        "vscode": "^1.24.0"
+        "vscode": "^1.1.37"
     },
     "categories": [
         "Snippets"
