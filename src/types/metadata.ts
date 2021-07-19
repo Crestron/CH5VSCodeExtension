@@ -5,6 +5,7 @@
  */
 
 export interface Metadata {
+  version: string;
   htmlElements: ElementsData;
   ch5Elements: ElementsData;
 }
@@ -20,16 +21,25 @@ export interface Ch5Attribute {
   name: string;
   value?: string[];
   documentation?: string[];
+  childElements?: ChildElements[];
+  default?: string;
+}
+export interface ChildElements {
+  tagName?: string;
+  optional?: boolean;
+  childElements?: ChildElements[];
 }
 export interface Ch5Element {
-  // document?: string;
-  // ctime?: string;
   name: string;
   tagName: string;
   description?: string;
   attributes?: Ch5Attribute[];
   documentation?: string[];
   snippets?: Ch5Snippet[];
+  childElements?: ChildElements[];
+  default?: string;
+  role?: string;
+  componentVersion?: string;
 }
 export interface Ch5Snippet {
   prefix: string;
