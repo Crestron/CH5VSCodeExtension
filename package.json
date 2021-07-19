@@ -102,26 +102,29 @@
     "devDependencies": {
         "@types/micromatch": "^3.1.0",
         "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.66",
+        "@types/node": "^8.10.10",
         "@types/parse-glob": "^3.0.29",
         "@types/readdir-enhanced": "^2.2.0",
         "@types/request": "^2.47.1",
+        "rimraf": "^3.0.2",
         "through2": "^2.0.3",
         "tslint": "^5.8.0",
-        "typescript": "^2.9.2",
-        "vscode": "^1.1.6"
+        "typescript": "^3.5.1",
+        "vscode": "^1.1.37"
     },
     "dependencies": {
-        "string-similarity": "^1.2.0",
+        "@types/vscode": "^1.58.1",
         "ajv": "^6.5.2",
         "fs-path": "0.0.24",
         "json-schema-to-typescript": "^5.5.0",
         "micromatch": "^3.1.10",
         "readdir-enhanced": "^2.2.1",
         "request": "^2.87.0",
-        "vscode-html-languageservice": "^2.1.2",
-        "vscode-languageclient": "^4.2.1",
-        "vscode-languageserver": "^4.2.1",
-        "vscode-languageserver-types": "^3.8.2"
+        "string-similarity": "^1.2.0",
+        "vsce": "^1.95.1",
+        "vscode-html-languageservice": "^4.0.7",
+        "vscode-languageclient": "^5.2.1",
+        "vscode-languageserver": "^5.2.1",
+        "vscode-languageserver-types": "^3.16.0"
     }
 }
