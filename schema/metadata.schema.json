@@ -2,6 +2,9 @@
     "title": "Metadata",
     "type": "object",
     "properties": {
+        "version": {
+            "type": "string"
+        },
         "htmlElements": {
             "$ref": "#/definitions/ElementsData"
         },
@@ -10,23 +13,29 @@
         }
     },
     "additionalProperties": false,
-    "required": ["htmlElements", "ch5Elements"],
+    "required": [
+        "version",
+        "htmlElements",
+        "ch5Elements"
+    ],
     "definitions": {
         "ElementsData": {
-           "type": "object",
-           "properties": {
-               "common": { 
-                   "$ref": "#/definitions/CommonData"
-                }, 
+            "type": "object",
+            "properties": {
+                "common": {
+                    "$ref": "#/definitions/CommonData"
+                },
                 "elements": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Ch5Element"
                     }
                 }
-           },
-           "required": ["common"],
-           "additionalProperties": false
+            },
+            "required": [
+                "common"
+            ],
+            "additionalProperties": false
         },
         "CommonData": {
             "type": "object",
@@ -45,7 +54,9 @@
                 }
             },
             "additionalProperties": false,
-            "required": ["attributes"]
+            "required": [
+                "attributes"
+            ]
         },
         "Ch5Attribute": {
             "type": "object",
@@ -56,29 +67,33 @@
                 "value": {
                     "type": "array",
                     "items": {
-                        "type":"string"
+                        "type": "string"
                     }
                 },
                 "documentation": {
-                    "type":"array",
+                    "type": "array",
                     "items": {
-                        "type":"string"
+                        "type": "string"
                     }
+                },
+                "childElements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ChildElements"
+                    }
+                },
+                "default": {
+                    "type": "string"
                 }
             },
-            "required": ["name"],
+            "required": [
+                "name"
+            ],
             "additionalProperties": false
         },
         "Ch5Element": {
             "type": "object",
             "properties": {
-                "document":{
-                    "type":"string"
-                },
-                "ctime": {
-                    "type":"string",
-                    "format":"date-time"
-                },
                 "name": {
                     "type": "string"
                 },
@@ -86,7 +101,7 @@
                     "type": "string"
                 },
                 "description": {
-                    "type":"string"
+                    "type": "string"
                 },
                 "attributes": {
                     "type": "array",
@@ -95,39 +110,79 @@
                     }
                 },
                 "documentation": {
-                    "type":"array",
+                    "type": "array",
                     "items": {
-                        "type":"string"
+                        "type": "string"
                     }
                 },
                 "snippets": {
-                    "type":"array",
+                    "type": "array",
                     "items": {
                         "$ref": "#/definitions/Ch5Snippet"
                     }
+                },
+                "childElements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ChildElements"
+                    }
+                },
+                "default": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                },
+                "componentVersion": {
+                    "type": "string"
                 }
             },
-            "required": ["name", "tagName"],
+            "required": [
+                "name",
+                "tagName"
+            ],
             "additionalProperties": false
         },
-        "Ch5Snippet":{
-            "type":"object",
+        "Ch5Snippet": {
+            "type": "object",
             "properties": {
                 "prefix": {
-                    "type":"string"
+                    "type": "string"
                 },
                 "description": {
-                    "type":"string"
+                    "type": "string"
                 },
-                "body":{
-                    "type":"array",
+                "body": {
+                    "type": "array",
                     "items": {
-                        "type":"string"
+                        "type": "string"
                     }
                 }
             },
-            "required": ["prefix", "description", "body"],
+            "required": [
+                "prefix",
+                "description",
+                "body"
+            ],
             "additionalProperties": false
-        }        
+        },
+        "ChildElements": {
+            "type": "object",
+            "properties": {
+                "tagName": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                },
+                "childElements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ChildElements"
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
     }
 }
