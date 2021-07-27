@@ -12,7 +12,6 @@
             "$ref": "#/definitions/ElementsData"
         }
     },
-    "additionalProperties": false,
     "required": [
         "version",
         "htmlElements",
@@ -34,8 +33,7 @@
             },
             "required": [
                 "common"
-            ],
-            "additionalProperties": false
+            ]
         },
         "CommonData": {
             "type": "object",
@@ -53,7 +51,6 @@
                     }
                 }
             },
-            "additionalProperties": false,
             "required": [
                 "attributes"
             ]
@@ -88,8 +85,7 @@
             },
             "required": [
                 "name"
-            ],
-            "additionalProperties": false
+            ]
         },
         "Ch5Element": {
             "type": "object",
@@ -140,8 +136,7 @@
             "required": [
                 "name",
                 "tagName"
-            ],
-            "additionalProperties": false
+            ]
         },
         "Ch5Snippet": {
             "type": "object",
@@ -163,8 +158,7 @@
                 "prefix",
                 "description",
                 "body"
-            ],
-            "additionalProperties": false
+            ]
         },
         "ChildElements": {
             "type": "object",
@@ -181,8 +175,7 @@
                         "$ref": "#/definitions/ChildElements"
                     }
                 }
-            },
-            "additionalProperties": false
+            }
         }
     }
 }
