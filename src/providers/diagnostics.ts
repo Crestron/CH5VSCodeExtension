@@ -69,17 +69,18 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                 if (isCh5Element(currentTag, cache)) {
                     const cachedAttributes = cache.getElementAttributes(currentTag, DataTypePrefix.Ch5);
                     const attributesName = cachedAttributes.map(attribute => attribute.name).concat(globalEventHandlers);
+                    const lowerCaseTokenText = scanner.getTokenText().toLowerCase();
                     let  validAttribute: boolean = true;
 
                     // find best match from list of metadata attributes of current attribute
-                    const match = findBestMatch(scanner.getTokenText().toLocaleLowerCase(), attributesName);
+                    const match = findBestMatch(lowerCaseTokenText, attributesName);
                     
                     // only provide diagnostic if best match rating is over stringDistanceRatingAllowance(default 0.3)
                     if (match.bestMatch.rating !== 1 && match.bestMatch.rating >= settings.stringDistanceRatingAllowance) {
                         validAttribute = false;
                     }
 
-                    if (scanner.getTokenText().toLocaleLowerCase().indexOf('aria-') === 0) {
+                    if (lowerCaseTokenText.startsWith('aria-') || lowerCaseTokenText.startsWith('data-')) {
                         validAttribute = true;
                     }
                     
