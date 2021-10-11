@@ -73,12 +73,6 @@
                         "type": "string"
                     }
                 },
-                "childElements": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ChildElements"
-                    }
-                },
                 "default": {
                     "type": "string"
                 }
@@ -122,9 +116,6 @@
                     "items": {
                         "$ref": "#/definitions/ChildElements"
                     }
-                },
-                "default": {
-                    "type": "string"
                 },
                 "role": {
                     "type": "string"
