@@ -34,7 +34,7 @@ function validateAttribute(attribute: object): Ch5Attribute | undefined {
     }
 
     // check for documentation
-    if ( attribute.hasOwnProperty('documentation') && typeof attribute['value'] === 'object') {
+    if ( attribute.hasOwnProperty('documentation') && typeof attribute['documentation'] === 'object') {
         documentation = attribute['documentation'];
     }
 
