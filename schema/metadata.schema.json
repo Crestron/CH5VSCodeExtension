@@ -75,6 +75,12 @@
                 },
                 "default": {
                     "type": "string"
+                },
+                "deprecated": {
+                    "type": "object",
+                    "items": {
+                        "$ref": "#/definitions/Deprecated"
+                    }
                 }
             },
             "required": [
@@ -165,6 +171,17 @@
                     "items": {
                         "$ref": "#/definitions/ChildElements"
                     }
+                }
+            }
+        },
+        "Deprecated": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string"
+                },
+                "descriptions": {
+                    "type": "string"
                 }
             }
         }
