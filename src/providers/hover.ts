@@ -135,6 +135,11 @@ function getAttributeDocumentation(attribute: Ch5Attribute): Hover {
         contents.value = attribute['documentation'].join('\n');
     }
 
+    // check if attribute has deprecated 
+    if (attribute && attribute.hasOwnProperty('deprecated') && typeof attribute.deprecated !== 'undefined') {
+        contents.value = contents.value + '\n' + attribute['deprecated.description'];
+    }
+
     return {
 		contents
 	};

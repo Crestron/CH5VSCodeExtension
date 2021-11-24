@@ -23,6 +23,7 @@ export interface Ch5Attribute {
   documentation?: string[];
   childElements?: ChildElements[];
   default?: string;
+  deprecated?: Deprecated;
 }
 export interface ChildElements {
   tagName?: string;
@@ -45,4 +46,14 @@ export interface Ch5Snippet {
   prefix: string;
   description: string;
   body: string[];
+}
+export interface ChildElements {
+  tagName?: string;
+  optional?: boolean;
+  childElements?: ChildElements[];
+}
+
+export interface Deprecated {
+  version: string;
+  description: string;
 }
