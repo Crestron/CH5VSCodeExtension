@@ -99,6 +99,17 @@
         "generate-metadata": "./node_modules/.bin/json2ts ./schema/metadata.schema.json ./src/types/metadata.ts",
         "generate-package": "node ./build/packages.js"
     },
+    "dependencies": {
+        "ajv": "^8.8.2",
+        "json-schema-to-typescript": "^5.5.0",
+        "micromatch": "^4.0.4",
+        "request": "^2.87.0",
+        "string-similarity": "^4.0.4",
+        "vsce": "^1.95.1",
+        "vscode-html-languageservice": "^4.0.7",
+        "vscode-languageclient": "^7.0.0",
+        "vscode-languageserver": "^7.0.0"
+    },
     "devDependencies": {
         "@types/micromatch": "^3.1.0",
         "@types/mocha": "^2.2.42",
@@ -110,21 +121,7 @@
         "through2": "^2.0.3",
         "tslint": "^5.8.0",
         "typescript": "^3.5.1",
-        "vscode": "^1.1.37"
-    },
-    "dependencies": {
-        "@types/vscode": "^1.58.1",
-        "ajv": "^6.5.2",
-        "fs-path": "0.0.24",
-        "json-schema-to-typescript": "^5.5.0",
-        "micromatch": "^3.1.10",
-        "readdir-enhanced": "^2.2.1",
-        "request": "^2.87.0",
-        "string-similarity": "^1.2.0",
-        "vsce": "^1.95.1",
-        "vscode-html-languageservice": "^4.0.7",
-        "vscode-languageclient": "^5.2.1",
-        "vscode-languageserver": "^5.2.1",
-        "vscode-languageserver-types": "^3.16.0"
+        "vscode": "^1.1.37",
+        "@types/vscode": "^1.58.1"
     }
 }

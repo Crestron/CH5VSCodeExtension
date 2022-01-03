@@ -7,8 +7,7 @@
 
 'use strict';
 
-import  { writeFile as fsWriteFile }  from 'fs-path';
-import { readFile as fsReadFile }  from 'fs';
+import { readFile as fsReadFile, writeFile as fsWriteFile }  from 'fs';
 
 /**
  * Read file by specified filepath;

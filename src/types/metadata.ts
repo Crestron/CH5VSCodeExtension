@@ -8,27 +8,30 @@ export interface Metadata {
   version: string;
   htmlElements: ElementsData;
   ch5Elements: ElementsData;
+  [k: string]: any;
 }
 export interface ElementsData {
   common: CommonData;
   elements?: Ch5Element[];
+  [k: string]: any;
 }
 export interface CommonData {
   exclude?: string[];
   attributes: Ch5Attribute[];
+  [k: string]: any;
 }
 export interface Ch5Attribute {
   name: string;
   value?: string[];
   documentation?: string[];
-  childElements?: ChildElements[];
   default?: string;
-  deprecated?: Deprecated;
+  deprecated?: Deprecated[];
+  [k: string]: any;
 }
-export interface ChildElements {
-  tagName?: string;
-  optional?: boolean;
-  childElements?: ChildElements[];
+export interface Deprecated {
+  version?: string;
+  descriptions?: string;
+  [k: string]: any;
 }
 export interface Ch5Element {
   name: string;
@@ -38,22 +41,19 @@ export interface Ch5Element {
   documentation?: string[];
   snippets?: Ch5Snippet[];
   childElements?: ChildElements[];
-  default?: string;
   role?: string;
   componentVersion?: string;
+  [k: string]: any;
 }
 export interface Ch5Snippet {
   prefix: string;
   description: string;
   body: string[];
+  [k: string]: any;
 }
 export interface ChildElements {
   tagName?: string;
   optional?: boolean;
   childElements?: ChildElements[];
-}
-
-export interface Deprecated {
-  version: string;
-  description: string;
+  [k: string]: any;
 }
