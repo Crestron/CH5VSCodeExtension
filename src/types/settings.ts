@@ -8,11 +8,7 @@
 export interface Ch5Settings {
     // General
     stringDistanceRatingAllowance: number;
-    scannerDepth: number;
     customAttributesInclude: string[];
-    scannerExclude: string[];
-    scanImportedFiles: boolean;
-    scanImportedFilesDepth: number;
     sourceURL: string;
 
     // Display
