@@ -69,22 +69,6 @@
                     "type": "number",
                     "default": 100,
                     "description": "Controls the maximum number of problems produced by the server."
-                },
-                "ch5.scannerExclude": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "default": [
-                        "**/.git",
-                        "**/node_modules"
-                    ],
-                    "description": "List of Glob-patterns for directories that are excluded when scanning."
-                },
-                "ch5.scannerDepth": {
-                    "type": "number",
-                    "default": 30,
-                    "description": "The maximum number of nested directories to scan."
                 }
             }
         }
