@@ -9,7 +9,7 @@
 
 import * as path from 'path';
 import * as request from 'request';
-import * as Ajv from 'ajv';
+import Ajv from 'ajv';
 import { writeFile, readFile } from '../utils/fs';
 
 import { Ch5Cache } from './cache';

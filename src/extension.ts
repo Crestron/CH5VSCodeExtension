@@ -14,7 +14,7 @@ import * as vscode from 'vscode';
 
 import {
 	LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, TextEdit
-} from 'vscode-languageclient';
+} from 'vscode-languageclient/node';
 
 
 // this method is called when your extension is activated

@@ -5,11 +5,13 @@
 'use strict';
 
 import {
-    createConnection, IConnection, IPCMessageReader, IPCMessageWriter,
+    createConnection, Connection, IPCMessageReader, IPCMessageWriter,
     TextDocuments, InitializeParams, InitializeResult, Hover,
-    TextDocumentPositionParams, TextDocument, Position, CompletionParams,
-    CompletionList, CompletionItem, CodeActionContext
-} from 'vscode-languageserver';
+    TextDocumentPositionParams, Position, CompletionParams,
+    CompletionList, CompletionItem, CodeActionContext, TextDocumentSyncKind
+} from 'vscode-languageserver/node';
+
+import { TextDocument } from 'vscode-languageserver-textdocument';
 
 import { Ch5Settings } from './types/settings';
 
@@ -29,11 +31,11 @@ let settings: Ch5Settings;
 let url: string;
 
 // Create a connection for the server
-const connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
+const connection: Connection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
 
 // Create a simple text document manager. The text document manager
 // supports full document sync only
-let documents: TextDocuments = new TextDocuments();
+let documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
 
 // Make the text document manager listen on the connection
 // for open, change and close text document events
@@ -57,7 +59,7 @@ connection.onInitialize(async (params: InitializeParams) => {
 
     return <InitializeResult>{
         capabilities: {
-            textDocumentSync: documents.syncKind,
+            textDocumentSync: TextDocumentSyncKind.Full,
             completionProvider: { resolveProvider: true },
             hoverProvider: true,
             codeActionProvider: true

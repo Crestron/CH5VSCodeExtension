@@ -8,8 +8,9 @@
 'use strict';
 
 import {
-	Hover, TextDocument, Files, Position, MarkupContent, MarkupKind
-} from 'vscode-languageserver';
+	Hover, Files, Position, MarkupContent, MarkupKind
+} from 'vscode-languageserver/node';
+import { TextDocument } from 'vscode-languageserver-textdocument';
 
 import { 
     getLanguageService as getHTMLLanguageService, HTMLDocument, Node, LanguageService, TokenType, Scanner 

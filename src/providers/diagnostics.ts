@@ -8,7 +8,9 @@
 'use strict';
 
 import { getLanguageService as getHTMLLanguageService, Scanner, TokenType, LanguageService } from 'vscode-html-languageservice';
-import { TextDocument, IConnection, Diagnostic } from "vscode-languageserver";
+import { Connection, Diagnostic } from "vscode-languageserver/node";
+import { TextDocument } from 'vscode-languageserver-textdocument';
+
 
 import { Ch5Settings } from "../types/settings";
 import { DataTypePrefix } from '../types/prefix';
@@ -24,7 +26,7 @@ import { findBestMatch } from 'string-similarity';
 import { isMatch } from "micromatch";
 
 // Do diagnostics
-export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, connection: IConnection, settings: Ch5Settings): Promise<void> {
+export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, connection: Connection, settings: Ch5Settings): Promise<void> {
     const htmlLanguageService: LanguageService = getHTMLLanguageService();
 
     let probNr = 0;

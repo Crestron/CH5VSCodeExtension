@@ -10,7 +10,7 @@
 import {
     TextDocument, Files, Position, Range,
     CompletionList, CompletionItemKind, InsertTextFormat
-} from 'vscode-languageserver';
+} from 'vscode-languageserver/node';
 
 import { getLanguageService as getHTMLLanguageService, HTMLDocument, Node, TokenType, Scanner, LanguageService } from 'vscode-html-languageservice';
 
