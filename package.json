@@ -12,7 +12,7 @@
     "version": "0.0.39",
     "publisher": "Crestron",
     "engines": {
-        "vscode": "^1.58.1"
+        "vscode": "^1.40.0"
     },
     "categories": [
         "Snippets"
@@ -90,12 +90,10 @@
         }
     },
     "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
         "vscode:prepublish": "npm run compile",
         "clean": "rimraf out",
         "compile": "npm run clean && tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test",
         "generate-metadata": "./node_modules/.bin/json2ts ./schema/metadata.schema.json ./src/types/metadata.ts",
         "generate-package": "node ./build/packages.js"
     },
@@ -118,11 +116,11 @@
         "@types/parse-glob": "^3.0.29",
         "@types/readdir-enhanced": "^2.2.0",
         "@types/request": "^2.47.1",
+        "@types/vscode": "^1.40.0",
+        "@vscode/test-electron": "^2.1.2",
         "rimraf": "^3.0.2",
         "through2": "^2.0.3",
         "tslint": "^5.8.0",
-        "typescript": "^4.5.5",
-        "vscode": "^1.1.37",
-        "@types/vscode": "^1.58.1"
+        "typescript": "^4.5.5"
     }
 }
