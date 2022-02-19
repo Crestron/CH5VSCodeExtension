@@ -49,6 +49,9 @@ function getMetadata(url): Promise<string> {
                 // store data in local file
                 writeFile(metadataPath, body).then(() => {
                     console.log('Metadata file stored');
+                }).catch((err) => {
+                    reject(err);
+                    return undefined;
                 });
 
                 return resolve(body);
