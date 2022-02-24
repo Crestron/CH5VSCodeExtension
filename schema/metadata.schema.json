@@ -78,8 +78,10 @@
                 },
                 "deprecated": {
                     "type": "object",
-                    "items": {
-                        "$ref": "#/definitions/Deprecated"
+                    "properties": {
+                        "common": {
+                            "$ref": "#/definitions/Deprecated"
+                        }
                     }
                 }
             },
@@ -180,7 +182,7 @@
                 "version": {
                     "type": "string"
                 },
-                "descriptions": {
+                "description": {
                     "type": "string"
                 }
             }
