@@ -9,7 +9,7 @@
             "url": ""
         }
     },
-    "version": "0.0.39",
+    "version": "0.0.40",
     "publisher": "Crestron",
     "engines": {
         "vscode": "^1.40.0"
@@ -56,7 +56,7 @@
                 },
                 "ch5.sourceURL": {
                     "type": "string",
-                    "default": "https://siproducts.blob.core.windows.net/ch5-test/021722/schema.json",
+                    "default": "https://siproducts.blob.core.windows.net/ch5-test/03032022/schema.json",
                     "description": "Source URL of meta-data where are stored snippets, completions and hover documentation"
                 },
                 "ch5.showErrors": {
