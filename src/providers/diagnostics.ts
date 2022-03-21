@@ -85,6 +85,13 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                     if (lowerCaseTokenText.startsWith('aria-') || lowerCaseTokenText.startsWith('data-')) {
                         validAttribute = true;
                     }
+
+                    const attribute = cachedAttributes.find((attribute) => {
+                        return attribute.name.toLowerCase() === scanner.getTokenText().toLowerCase();
+                    });
+                    if (attribute && attribute.hidden) {
+                        validAttribute = false;
+                    }
                     
                     if(!validAttribute) { 
                         probNr++;
@@ -113,6 +120,13 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                                 return attribute.name.toLocaleLowerCase() === scanner.getTokenText().toLocaleLowerCase();
                             }); 
                         } 
+                    }
+
+                    const attribute = cachedAttributes.find((attribute) => {
+                        return attribute.name.toLowerCase() === scanner.getTokenText().toLowerCase();
+                    });
+                    if (attribute && attribute.hidden) {
+                        validAttribute = false;
                     }
 
                     if(!validAttribute) {

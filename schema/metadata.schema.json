@@ -83,6 +83,9 @@
                             "$ref": "#/definitions/Deprecated"
                         }
                     }
+                },
+                "hidden": {
+                    "type": "boolean"
                 }
             },
             "required": [
