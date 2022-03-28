@@ -12,5 +12,7 @@ import { DiagnosticSeverity } from "vscode-languageserver";
 
 export let lintRules = {
     invalidAttribute: new Rule('invalidAttribute', DiagnosticSeverity.Warning),
-    invalidAttributeValue: new Rule('invalidAttributeValue', DiagnosticSeverity.Error)
+    invalidAttributeValue: new Rule('invalidAttributeValue', DiagnosticSeverity.Error),
+    'css-colonexpected': new Rule('css-colonexpected', DiagnosticSeverity.Warning),
+    'css-propertyvalueexpected': new Rule('css-propertyvalueexpected', DiagnosticSeverity.Warning)
 };
