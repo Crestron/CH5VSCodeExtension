@@ -16,7 +16,7 @@ import {
     getLanguageService as getHTMLLanguageService, HTMLDocument, Node, LanguageService, TokenType, Scanner 
 } from 'vscode-html-languageservice';
 
-import { Ch5Element, Ch5Attribute } from '../types/metadata';
+import { Ch5Element, Ch5Attribute, Deprecated } from '../types/metadata';
 import { Ch5Cache } from '../services/cache';
 import { DataTypePrefix } from '../types/prefix';
 
@@ -138,7 +138,16 @@ function getAttributeDocumentation(attribute: Ch5Attribute): Hover {
 
     // check if attribute has deprecated 
     if (attribute && attribute.hasOwnProperty('deprecated') && typeof attribute.deprecated !== 'undefined') {
-        contents.value = contents.value + '\n' + attribute['deprecated.description'];
+        const deprecatedDocs = attribute['deprecated'];
+        const stringifiedDeprecated = JSON.stringify(deprecatedDocs);
+
+        const versionIndex = stringifiedDeprecated.indexOf('version');
+        const version = stringifiedDeprecated.substring(versionIndex + 'version'.length + 3, stringifiedDeprecated.indexOf(',') - 1);
+
+        const descriptionIndex = stringifiedDeprecated.indexOf('description');
+        const description = stringifiedDeprecated.substring(descriptionIndex + 'description'.length + 3, stringifiedDeprecated.length - 2);
+
+        contents.value = contents.value + '\n' + description + ' Deprecated since version ' + version;
     }
 
     return {
