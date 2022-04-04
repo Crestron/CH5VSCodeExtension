@@ -25,7 +25,7 @@ export interface Ch5Attribute {
   value?: string[];
   documentation?: string[];
   default?: string;
-  deprecated?: Deprecated[];
+  deprecated?: Deprecated;
   [k: string]: any;
 }
 export interface Deprecated {
