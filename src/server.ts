@@ -75,13 +75,13 @@ connection.onDidChangeConfiguration((params) => {
 
 // This handler provides update for metadata
 connection.onRequest('updateCrestronMetaData', async () => {
-    // clear cache before update medata;
+    // clear cache before update metadata;
     clearCacheStorage(cache);
 
     // scan url for data and cache them in storage
     await doScannerUrl(url, cache).then(() => {
         // show success message
-        connection.window.showInformationMessage("Crestron Componets meta-data update is done");
+        connection.window.showInformationMessage("Crestron Components meta-data update is done");
     }).catch((err) => {
         if (settings.showErrors) {
             showErrorMessages(err);
@@ -109,7 +109,7 @@ connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
     return item;
 });
 
-// This handler provides the hover vallue help pop-up.
+// This handler provides the hover value help pop-up.
 connection.onHover((positionParams: TextDocumentPositionParams): Hover => {
     const document: TextDocument = documents.get(positionParams.textDocument.uri);
     const position: Position = Position.create(positionParams.position.line, positionParams.position.character);

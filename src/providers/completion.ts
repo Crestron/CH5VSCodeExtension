@@ -63,7 +63,7 @@ export function doCompletion(document: TextDocument, position: Position, cache: 
 
     while (token !== TokenType.EOS && scanner.getTokenOffset() <= offset) {
         switch (token) {
-            // privide ch5 element tag names completion
+            // provide ch5 element tag names completion
             case TokenType.StartTag:
                 // update current tag name
                 currentTag = scanner.getTokenText();
@@ -130,7 +130,7 @@ export function doCompletion(document: TextDocument, position: Position, cache: 
 }
 
 /**
- * Create snippets sugestions
+ * Create snippets suggestions
  * 
  * @param document 
  * @param position 
