@@ -2,7 +2,6 @@
   <img src="https://kenticoprod.azureedge.net/kenticoblob/crestron/media/crestron/generalsiteimages/crestron-logo.png">
 </p>
 
-
 # Crestron CH5 VSCode Extension 
 
 ## This Extension provides support for Crestron CH5 Components
@@ -28,5 +27,3 @@ show invalid attributes
 fix invalid attributes
 
 # Enjoy
-
-
