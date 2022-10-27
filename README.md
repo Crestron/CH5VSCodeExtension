@@ -12,18 +12,19 @@ Little bits of code injected.
 
 ### Hover Help
 
-Hover over attributes and component names provides help
+Hover over attributes and component names provides help.
 
 ### Intellisense
 
-show possible completions of what you are typing in
+Show possible completions of what you are typing in.
 
 ### Validation
 
-show invalid attributes 
+Show invalid attributes.
 
 ### Error Correction
 
-fix invalid attributes
+Fix invalid attributes.
 
 # Enjoy
+Please read the DEVELOPER.README, the CHANGELOG, the CODE_OF_CONDUCT, the CONTRIBUTING, and GOVERNANCE documentation.
