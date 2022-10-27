@@ -7,9 +7,8 @@
 
 'use strict';
 
-import { Hover, Position, MarkupContent, MarkupKind } from 'vscode-languageserver/node';
+import { Hover, Files, Position, MarkupContent, MarkupKind } from 'vscode-languageserver/node';
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import { URI } from 'vscode-uri';
 import { getLanguageService as getHTMLLanguageService, HTMLDocument, Node, LanguageService, TokenType, Scanner }
     from 'vscode-html-languageservice';
 import { Ch5Element, Ch5Attribute } from '../types/metadata';
@@ -21,7 +20,7 @@ import { isCh5Element, isEmpty } from '../utils/helpers';
  * Do Hover 
  */
 export function doHover(document: TextDocument, position: Position, cache: Ch5Cache): Hover | null {
-    const documentPath = URI.parse(document.uri) || document.uri; // Deprecated: uriToFilePath
+    const documentPath = Files.uriToFilePath(document.uri) || document.uri;
     if (!documentPath || isEmpty(cache.storage())) {
         return null;
     }
