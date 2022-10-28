@@ -119,7 +119,7 @@ function getElementDocumentation(element: Ch5Element): Hover {
 
 /**
  * Get attribute hover documentation
- * @param attributeName 
+ * @param attribute 
  */
 function getAttributeDocumentation(attribute: Ch5Attribute): Hover {
     // Content for Hover popup
