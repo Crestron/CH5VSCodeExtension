@@ -21,11 +21,9 @@ import { Ch5Cache } from '../services/cache';
 
 import { isCh5Element, hasQuotes } from '../utils/helpers';
 import { globalEventHandlers } from '../utils/globalEventHandlers';
-import { ch5Attributes } from '../utils/ch5Attributes';
 
 import { findBestMatch } from 'string-similarity';
 import { isMatch } from "micromatch";
-import { angularEvents } from '../utils/angularEvents';
 
 // Do diagnostics
 export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, connection: Connection, settings: Ch5Settings): Promise<void> {
@@ -72,8 +70,9 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                 // provide diagnostics for ch5 elements
                 if (isCh5Element(currentTag, cache)) {
                     const cachedAttributes = cache.getElementAttributes(currentTag, DataTypePrefix.Ch5);
+                    const ch5Attributes = cachedAttributes.map(attribute => '[' + attribute.name + ']')
                     const attributesName = cachedAttributes.map(attribute => attribute.name).concat(globalEventHandlers)
-                        .concat(angularEvents).concat(ch5Attributes);
+                        .concat(ch5Attributes);
                     const lowerCaseTokenText = scanner.getTokenText().toLowerCase();
                     let validAttribute: boolean = true;
 

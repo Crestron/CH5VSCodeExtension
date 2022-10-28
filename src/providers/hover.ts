@@ -53,10 +53,10 @@ export function doHover(document: TextDocument, position: Position, cache: Ch5Ca
                 break;
             // hover for attribute name
             case TokenType.AttributeName:
+                let text = scanner.getTokenText().toLowerCase();
+                text = text.replace('[', '').replace(']', '');
                 if (scanner.getTokenOffset() <= offset && offset <= scanner.getTokenEnd()) {
                     let attribute = attributes.find((attribute) => {
-                        let text = scanner.getTokenText().toLowerCase();
-                        text = text.replace('(', '').replace(')', '').replace('[', '').replace(']', '');
                         return attribute.name.toLowerCase() === text;
                     });
                     return getAttributeDocumentation(attribute);

@@ -9,7 +9,7 @@
             "url": ""
         }
     },
-    "version": "0.0.47",
+    "version": "0.0.42",
     "publisher": "Crestron",
     "engines": {
         "vscode": "^1.40.0"
