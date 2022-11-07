@@ -25,12 +25,16 @@ export interface Ch5Attribute {
   value?: string[];
   documentation?: string[];
   default?: string;
-  deprecated?: Deprecated;
+  deprecated?: {
+    common?: Deprecated;
+    [k: string]: any;
+  };
+  hidden?: boolean;
   [k: string]: any;
 }
 export interface Deprecated {
   version?: string;
-  descriptions?: string;
+  description?: string;
   [k: string]: any;
 }
 export interface Ch5Element {
