@@ -1,5 +1,6 @@
 {
     "publisher": "Crestron", 
+    "icon": "images/icon.png", 
     "license": "SEE LICENSE IN LICENSE.txt", 
     "displayName": "Crestron Components", 
     "engines": {
@@ -11,37 +12,6 @@
             "type": "git"
         }
     }, 
-    "description": "Syntax, code completion, validation, and help for Crestron Components", 
-    "activationEvents": [
-        "*"
-    ], 
-    "name": "crestroncomponents", 
-    "version": "2.1.0", 
-    "galleryBanner": {
-        "color": "#C80000", 
-        "theme": "dark"
-    }, 
-    "dependencies": {
-        "vscode-languageclient": "^7.0.0", 
-        "string-similarity": "^4.0.4", 
-        "json-schema-to-typescript": "^5.5.0", 
-        "request": "^2.87.0", 
-        "micromatch": "^4.0.4", 
-        "ajv": "^8.10.0", 
-        "vsce": "^1.95.1", 
-        "vscode-html-languageservice": "^4.0.7", 
-        "vscode-languageserver-textdocument": "^1.0.4", 
-        "vscode-languageserver": "^7.0.0"
-    }, 
-    "scripts": {
-        "generate-metadata": "./node_modules/.bin/json2ts ./schema/metadata.schema.json ./src/types/metadata.ts", 
-        "watch": "tsc -watch -p ./", 
-        "compile": "npm run clean && tsc -p ./", 
-        "generate-package": "node ./build/packages.js", 
-        "clean": "rimraf out", 
-        "vscode:prepublish": "npm run compile"
-    }, 
-    "main": "./out/extension.js", 
     "devDependencies": {
         "tslint": "^5.8.0", 
         "through2": "^2.0.3", 
@@ -56,6 +26,11 @@
         "@types/readdir-enhanced": "^2.2.0", 
         "@vscode/test-electron": "^2.1.2"
     }, 
+    "activationEvents": [
+        "*"
+    ], 
+    "name": "crestroncomponents", 
+    "version": "2.1.0", 
     "contributes": {
         "commands": [
             {
@@ -67,21 +42,21 @@
         "configuration": {
             "type": "object", 
             "properties": {
-                "ch5.stringDistanceRatingAllowance": {
-                    "default": 0.3, 
-                    "scope": "resource", 
-                    "type": "number", 
-                    "description": "Controls the string distance rating allowed for diagnostic attributes. Should be in range from 0 to 1, the higher the value, the stricter the detection."
+                "ch5.showErrors": {
+                    "default": true, 
+                    "type": "boolean", 
+                    "description": "Allows to display errors."
                 }, 
                 "ch5.sourceURL": {
                     "default": "https://siproducts.blob.core.windows.net/ch5-ext-release/schema.json", 
                     "type": "string", 
                     "description": "Source URL of meta-data where are stored snippets, completions and hover documentation"
                 }, 
-                "ch5.showErrors": {
-                    "default": true, 
-                    "type": "boolean", 
-                    "description": "Allows to display errors."
+                "ch5.stringDistanceRatingAllowance": {
+                    "default": 0.3, 
+                    "scope": "resource", 
+                    "type": "number", 
+                    "description": "Controls the string distance rating allowed for diagnostic attributes. Should be in range from 0 to 1, the higher the value, the stricter the detection."
                 }, 
                 "ch5.customAttributesInclude": {
                     "default": [
@@ -103,8 +78,33 @@
             "title": "CH5 configuration"
         }
     }, 
+    "dependencies": {
+        "vscode-languageclient": "^7.0.0", 
+        "string-similarity": "^4.0.4", 
+        "json-schema-to-typescript": "^5.5.0", 
+        "request": "^2.87.0", 
+        "micromatch": "^4.0.4", 
+        "ajv": "^8.10.0", 
+        "vsce": "^1.95.1", 
+        "vscode-html-languageservice": "^4.0.7", 
+        "vscode-languageserver-textdocument": "^1.0.4", 
+        "vscode-languageserver": "^7.0.0"
+    }, 
+    "scripts": {
+        "generate-metadata": "./node_modules/.bin/json2ts ./schema/metadata.schema.json ./src/types/metadata.ts", 
+        "watch": "tsc -watch -p ./", 
+        "compile": "npm run clean && tsc -p ./", 
+        "generate-package": "node ./build/packages.js", 
+        "clean": "rimraf out", 
+        "vscode:prepublish": "npm run compile"
+    }, 
+    "galleryBanner": {
+        "color": "#C80000", 
+        "theme": "dark"
+    }, 
+    "main": "./out/extension.js", 
     "categories": [
         "Snippets"
     ], 
-    "icon": "images/icon.png"
+    "description": "Syntax, code completion, validation, and help for Crestron Components"
 }
