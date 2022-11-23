@@ -1,6 +1,5 @@
 {
     "publisher": "Crestron", 
-    "icon": "images/icon.png", 
     "license": "SEE LICENSE IN LICENSE.txt", 
     "displayName": "Crestron Components", 
     "engines": {
@@ -12,71 +11,15 @@
             "type": "git"
         }
     }, 
-    "devDependencies": {
-        "tslint": "^5.8.0", 
-        "through2": "^2.0.3", 
-        "@types/micromatch": "^3.1.0", 
-        "@types/parse-glob": "^3.0.29", 
-        "@types/mocha": "^2.2.42", 
-        "@types/vscode": "^1.40.0", 
-        "typescript": "^4.5.5", 
-        "rimraf": "^3.0.2", 
-        "@types/request": "^2.47.1", 
-        "@types/node": "^8.10.10", 
-        "@types/readdir-enhanced": "^2.2.0", 
-        "@vscode/test-electron": "^2.1.2"
-    }, 
+    "description": "Syntax, code completion, validation, and help for Crestron Components", 
     "activationEvents": [
         "*"
     ], 
     "name": "crestroncomponents", 
-    "version": "2.1.1", 
-    "contributes": {
-        "commands": [
-            {
-                "category": "Crestron", 
-                "command": "_ch5.updateMetaData", 
-                "title": "Update Metadata"
-            }
-        ], 
-        "configuration": {
-            "type": "object", 
-            "properties": {
-                "ch5.showErrors": {
-                    "default": true, 
-                    "type": "boolean", 
-                    "description": "Allows to display errors."
-                }, 
-                "ch5.sourceURL": {
-                    "default": "https://siproducts.blob.core.windows.net/ch5-ext-release/schema.json", 
-                    "type": "string", 
-                    "description": "Source URL of meta-data where are stored snippets, completions and hover documentation"
-                }, 
-                "ch5.stringDistanceRatingAllowance": {
-                    "default": 0.3, 
-                    "scope": "resource", 
-                    "type": "number", 
-                    "description": "Controls the string distance rating allowed for diagnostic attributes. Should be in range from 0 to 1, the higher the value, the stricter the detection."
-                }, 
-                "ch5.customAttributesInclude": {
-                    "default": [
-                        "*ch5*"
-                    ], 
-                    "items": {
-                        "type": "string"
-                    }, 
-                    "type": "array", 
-                    "description": "List of patterns for custom ch5 attributes that are included when diagnostics are provided."
-                }, 
-                "ch5.maxNumberOfProblems": {
-                    "default": 100, 
-                    "scope": "resource", 
-                    "type": "number", 
-                    "description": "Controls the maximum number of problems produced by the server."
-                }
-            }, 
-            "title": "CH5 configuration"
-        }
+    "version": "2.1.0", 
+    "galleryBanner": {
+        "color": "#C80000", 
+        "theme": "dark"
     }, 
     "dependencies": {
         "vscode-languageclient": "^7.0.0", 
@@ -98,13 +41,70 @@
         "clean": "rimraf out", 
         "vscode:prepublish": "npm run compile"
     }, 
-    "galleryBanner": {
-        "color": "#C80000", 
-        "theme": "dark"
-    }, 
     "main": "./out/extension.js", 
+    "devDependencies": {
+        "tslint": "^5.8.0", 
+        "through2": "^2.0.3", 
+        "@types/micromatch": "^3.1.0", 
+        "@types/parse-glob": "^3.0.29", 
+        "@types/mocha": "^2.2.42", 
+        "@types/vscode": "^1.40.0", 
+        "typescript": "^4.5.5", 
+        "rimraf": "^3.0.2", 
+        "@types/request": "^2.47.1", 
+        "@types/node": "^8.10.10", 
+        "@types/readdir-enhanced": "^2.2.0", 
+        "@vscode/test-electron": "^2.1.2"
+    }, 
+    "contributes": {
+        "commands": [
+            {
+                "category": "Crestron", 
+                "command": "_ch5.updateMetaData", 
+                "title": "Update Metadata"
+            }
+        ], 
+        "configuration": {
+            "type": "object", 
+            "properties": {
+                "ch5.stringDistanceRatingAllowance": {
+                    "default": 0.3, 
+                    "scope": "resource", 
+                    "type": "number", 
+                    "description": "Controls the string distance rating allowed for diagnostic attributes. Should be in range from 0 to 1, the higher the value, the stricter the detection."
+                }, 
+                "ch5.sourceURL": {
+                    "default": "https://siproducts.blob.core.windows.net/ch5-ext-release/schema.json", 
+                    "type": "string", 
+                    "description": "Source URL of meta-data where are stored snippets, completions and hover documentation"
+                }, 
+                "ch5.showErrors": {
+                    "default": true, 
+                    "type": "boolean", 
+                    "description": "Allows to display errors."
+                }, 
+                "ch5.customAttributesInclude": {
+                    "default": [
+                        "*ch5*"
+                    ], 
+                    "items": {
+                        "type": "string"
+                    }, 
+                    "type": "array", 
+                    "description": "List of patterns for custom ch5 attributes that are included when diagnostics are provided."
+                }, 
+                "ch5.maxNumberOfProblems": {
+                    "default": 100, 
+                    "scope": "resource", 
+                    "type": "number", 
+                    "description": "Controls the maximum number of problems produced by the server."
+                }
+            }, 
+            "title": "CH5 configuration"
+        }
+    }, 
     "categories": [
         "Snippets"
     ], 
-    "description": "Syntax, code completion, validation, and help for Crestron Components"
+    "icon": "images/icon.png"
 }
