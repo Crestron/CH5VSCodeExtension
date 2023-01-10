@@ -1,110 +1,110 @@
 {
-    "name": "crestroncomponents",
-    "displayName": "Crestron Components",
-    "license": "SEE LICENSE IN LICENSE.txt",
-    "description": "Syntax, code completion, validation, and help for Crestron Components",
-    "repository": {
-        "repository": {
-            "type": "git",
-            "url": ""
-        }
-    },
-    "version": "0.0.46",
-    "publisher": "Crestron",
+    "publisher": "Crestron", 
+    "icon": "images/icon.png", 
+    "license": "SEE LICENSE IN LICENSE.txt", 
+    "displayName": "Crestron Components", 
     "engines": {
         "vscode": "^1.40.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "icon": "images/icon.png",
-    "galleryBanner": {
-        "color": "#C80000",
-        "theme": "dark"
-    },
+    }, 
+    "repository": {
+        "repository": {
+            "url": "", 
+            "type": "git"
+        }
+    }, 
+    "devDependencies": {
+        "tslint": "^5.8.0", 
+        "through2": "^2.0.3", 
+        "@types/micromatch": "^3.1.0", 
+        "@types/parse-glob": "^3.0.29", 
+        "@types/mocha": "^2.2.42", 
+        "@types/vscode": "^1.40.0", 
+        "typescript": "^4.5.5", 
+        "rimraf": "^3.0.2", 
+        "@types/request": "^2.47.1", 
+        "@types/node": "^8.10.10", 
+        "@types/readdir-enhanced": "^2.2.0", 
+        "@vscode/test-electron": "^2.1.2"
+    }, 
     "activationEvents": [
         "*"
-    ],
-    "main": "./out/extension.js",
+    ], 
+    "name": "crestroncomponents", 
+    "version": "2.1.0", 
     "contributes": {
         "commands": [
             {
-                "command": "_ch5.updateMetaData",
-                "title": "Update Metadata",
-                "category": "Crestron"
+                "category": "Crestron", 
+                "command": "_ch5.updateMetaData", 
+                "title": "Update Metadata"
             }
-        ],
+        ], 
         "configuration": {
-            "type": "object",
-            "title": "CH5 configuration",
+            "type": "object", 
             "properties": {
+                "ch5.showErrors": {
+                    "default": true, 
+                    "type": "boolean", 
+                    "description": "Allows to display errors."
+                }, 
+                "ch5.sourceURL": {
+                    "default": "https://siproducts.blob.core.windows.net/ch5-ext-release/schema.json", 
+                    "type": "string", 
+                    "description": "Source URL of meta-data where are stored snippets, completions and hover documentation"
+                }, 
                 "ch5.stringDistanceRatingAllowance": {
-                    "scope": "resource",
-                    "type": "number",
-                    "default": 0.3,
+                    "default": 0.3, 
+                    "scope": "resource", 
+                    "type": "number", 
                     "description": "Controls the string distance rating allowed for diagnostic attributes. Should be in range from 0 to 1, the higher the value, the stricter the detection."
-                },
+                }, 
                 "ch5.customAttributesInclude": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
                     "default": [
                         "*ch5*"
-                    ],
+                    ], 
+                    "items": {
+                        "type": "string"
+                    }, 
+                    "type": "array", 
                     "description": "List of patterns for custom ch5 attributes that are included when diagnostics are provided."
-                },
-                "ch5.sourceURL": {
-                    "type": "string",
-                    "default": "https://siproducts.blob.core.windows.net/ch5-test/05302022/schema.json",
-                    "description": "Source URL of meta-data where are stored snippets, completions and hover documentation"
-                },
-                "ch5.showErrors": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Allows to display errors."
-                },
+                }, 
                 "ch5.maxNumberOfProblems": {
-                    "scope": "resource",
-                    "type": "number",
-                    "default": 100,
+                    "default": 100, 
+                    "scope": "resource", 
+                    "type": "number", 
                     "description": "Controls the maximum number of problems produced by the server."
                 }
-            }
+            }, 
+            "title": "CH5 configuration"
         }
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "clean": "rimraf out",
-        "compile": "npm run clean && tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "generate-metadata": "./node_modules/.bin/json2ts ./schema/metadata.schema.json ./src/types/metadata.ts",
-        "generate-package": "node ./build/packages.js"
-    },
+    }, 
     "dependencies": {
-        "ajv": "^8.10.0",
-        "json-schema-to-typescript": "^5.5.0",
-        "micromatch": "^4.0.4",
-        "request": "^2.87.0",
-        "string-similarity": "^4.0.4",
-        "vsce": "^1.95.1",
-        "vscode-html-languageservice": "^4.0.7",
-        "vscode-languageclient": "^7.0.0",
-        "vscode-languageserver": "^7.0.0",
-        "vscode-languageserver-textdocument": "^1.0.4"
-    },
-    "devDependencies": {
-        "@types/micromatch": "^3.1.0",
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^8.10.10",
-        "@types/parse-glob": "^3.0.29",
-        "@types/readdir-enhanced": "^2.2.0",
-        "@types/request": "^2.47.1",
-        "@types/vscode": "^1.40.0",
-        "@vscode/test-electron": "^2.1.2",
-        "rimraf": "^3.0.2",
-        "through2": "^2.0.3",
-        "tslint": "^5.8.0",
-        "typescript": "^4.5.5"
-    }
+        "vscode-languageclient": "^7.0.0", 
+        "string-similarity": "^4.0.4", 
+        "json-schema-to-typescript": "^5.5.0", 
+        "request": "^2.87.0", 
+        "micromatch": "^4.0.4", 
+        "ajv": "^8.10.0", 
+        "vsce": "^1.95.1", 
+        "vscode-html-languageservice": "^4.0.7", 
+        "vscode-languageserver-textdocument": "^1.0.4", 
+        "vscode-languageserver": "^7.0.0"
+    }, 
+    "scripts": {
+        "generate-metadata": "./node_modules/.bin/json2ts ./schema/metadata.schema.json ./src/types/metadata.ts", 
+        "watch": "tsc -watch -p ./", 
+        "compile": "npm run clean && tsc -p ./", 
+        "generate-package": "node ./build/packages.js", 
+        "clean": "rimraf out", 
+        "vscode:prepublish": "npm run compile"
+    }, 
+    "galleryBanner": {
+        "color": "#C80000", 
+        "theme": "dark"
+    }, 
+    "main": "./out/extension.js", 
+    "categories": [
+        "Snippets"
+    ], 
+    "description": "Syntax, code completion, validation, and help for Crestron Components"
 }

@@ -70,7 +70,9 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                 // provide diagnostics for ch5 elements
                 if (isCh5Element(currentTag, cache)) {
                     const cachedAttributes = cache.getElementAttributes(currentTag, DataTypePrefix.Ch5);
-                    const attributesName = cachedAttributes.map(attribute => attribute.name).concat(globalEventHandlers);
+                    const ch5Attributes = cachedAttributes.map(attribute => '[' + attribute.name + ']')
+                    const attributesName = cachedAttributes.map(attribute => attribute.name).concat(globalEventHandlers)
+                        .concat(ch5Attributes);
                     const lowerCaseTokenText = scanner.getTokenText().toLowerCase();
                     let validAttribute: boolean = true;
 

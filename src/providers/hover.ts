@@ -66,9 +66,11 @@ export function doHover(document: TextDocument, position: Position, cache: Ch5Ca
                 break;
             // hover for attribute name
             case TokenType.AttributeName:
+                let text = scanner.getTokenText().toLowerCase();
+                text = text.replace('[', '').replace(']', '');
                 if (scanner.getTokenOffset() <= offset && offset <= scanner.getTokenEnd()) {
                     let attribute = attributes.find((attribute) => {
-                        return attribute.name.toLowerCase() === scanner.getTokenText().toLowerCase();
+                        return attribute.name.toLowerCase() === text;
                     });
 
                     return getAttributeDocumentation(attribute);
@@ -97,8 +99,6 @@ export function doHover(document: TextDocument, position: Position, cache: Ch5Ca
 
 /**
  * Get tag hover documentation
- * 
- * @param elementName 
  * @param element 
  */
 function getElementDocumentation(element: Ch5Element): Hover {
@@ -119,10 +119,7 @@ function getElementDocumentation(element: Ch5Element): Hover {
 
 /**
  * Get attribute hover documentation
- * 
- * @param attributeName 
- * @param elementName 
- * @param element 
+ * @param attribute 
  */
 function getAttributeDocumentation(attribute: Ch5Attribute): Hover {
     // Content for Hover popup
