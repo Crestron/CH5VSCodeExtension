@@ -10,6 +10,7 @@
 import { getLanguageService as getHTMLLanguageService, Scanner, TokenType, LanguageService } from 'vscode-html-languageservice';
 import { Connection, Diagnostic } from "vscode-languageserver/node";
 import { TextDocument } from 'vscode-languageserver-textdocument';
+import { isNil } from 'lodash';
 
 
 import { Ch5Settings } from "../types/settings";
@@ -161,7 +162,7 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                 break;
             // provide diagnostics for attributes values
             case TokenType.AttributeValue:
-                const attribute = cache.getAttribute(currentAttributeName, currentTag, dataType);
+                const attribute = cache.getAttribute(currentAttributeName?.toLowerCase(), currentTag, dataType);
                 let attributeValue = scanner.getTokenText();
                 let standardUnitType: string;
 
@@ -204,6 +205,32 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                     let validValue = attribute.value.find(value => {
                         return value === attributeValue;
                     });
+
+                    if (!validValue) {
+                        probNr++;
+
+                        let diagnostic: Diagnostic = {
+                            code: lintRules.invalidAttributeValue.id,
+                            severity: lintRules.invalidAttributeValue.level,
+                            range: {
+                                start: startPosition,
+                                end: endPosition
+                            },
+                            message: `'${attributeValue}' is not a valid value for attribute '${currentAttributeName}'.`,
+                            source: 'crestron'
+                        };
+
+                        diagnostics.push(diagnostic);
+                    }
+                }
+
+                if (attribute && attribute.hasOwnProperty('limits') && attribute.limits.length > 0) {
+                    let validValue;
+
+                    const [{ min, max }] = attribute.limits;
+                    if (!isNil(min) && !isNil(max)) {
+                        validValue = attributeValue >= min && attributeValue <= max
+                    }
 
                     if (!validValue) {
                         probNr++;
