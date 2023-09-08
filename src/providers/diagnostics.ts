@@ -84,6 +84,14 @@ export async function doDiagnostics(document: TextDocument, cache: Ch5Cache, con
                         validAttribute = false;
                     }
 
+                    const findAttribute = attributesName.find((attribute) => {
+                        return attribute.toLowerCase() === scanner.getTokenText().toLowerCase();
+                    });
+
+                    if (!findAttribute) {
+                        validAttribute = false;
+                    }
+
                     if (lowerCaseTokenText.startsWith('aria-') || lowerCaseTokenText.startsWith('data-')) {
                         validAttribute = true;
                     }
